@@ -18,7 +18,7 @@ ifeq ($(HW_PLATFORM), x86_64)
 	dpkg -l linux-libc-dev || apt-get -y install linux-libc-dev
         dpkg -l linux-libc-dev-386-cross || apt-get -y install linux-libc-dev-386-cross
 	mkdir -p $(ARCH_32)
-	/usr/bin/gcc -m32 -Wall -O2 -o $(ARCH_32)/$(BINDTEXTDOMAIN) -fPIC -shared /snap/snapcraft/current/share/snapcraft/extensions/desktop/src/bindtextdomain.c -ldl
+	/usr/bin/i686-linux-gnu-gcc-11 -m32 -Wall -O2 -o $(ARCH_32)/$(BINDTEXTDOMAIN) -fPIC -shared /snap/snapcraft/current/share/snapcraft/extensions/desktop/src/bindtextdomain.c -ldl
 endif
 
 clean:
