@@ -16,7 +16,8 @@ ifeq ($(HW_PLATFORM), x86_64)
 	dpkg -l libc6-dev-i386 || apt-get -y install libc6-dev-i386
 	dpkg -l gcc-multilib || apt-get -y install gcc-multilib
 	dpkg -l linux-libc-dev || apt-get -y install linux-libc-dev
-	dpkg -l linux-libc-dev-386-cross || apt-get -y install linux-libc-dev-i386-cross
+	dpkg -l install linux-libc-dev-i386-cross || apt-get -y install linux-libc-dev-i386-cross
+	dpkg -l install gcc-i686-linux-gnu || apt-get -y gcc-i686-linux-gnu
 	mkdir -p $(ARCH_32)
 	/usr/bin/i686-linux-gnu-gcc-11 -m32 -Wall -O2 -o $(ARCH_32)/$(BINDTEXTDOMAIN) -fPIC -shared /snap/snapcraft/current/share/snapcraft/extensions/desktop/src/bindtextdomain.c -ldl
 endif
