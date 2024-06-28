@@ -18,6 +18,7 @@ ifeq ($(HW_PLATFORM), x86_64)
 	dpkg -l linux-libc-dev || apt-get -y install linux-libc-dev
 	dpkg -l install linux-libc-dev-i386-cross || apt-get -y install linux-libc-dev-i386-cross
 	dpkg -l install gcc-i686-linux-gnu || apt-get -y install gcc-i686-linux-gnu
+	dpkg -l install gcc-multilib-i686-linux-gnu || apt-get -y install gcc-multilib-i686-linux-gnu
 	mkdir -p $(ARCH_32)
 	/usr/bin/i686-linux-gnu-gcc-11 -m32 -Wall -O2 -o $(ARCH_32)/$(BINDTEXTDOMAIN) -fPIC -shared /snap/snapcraft/current/share/snapcraft/extensions/desktop/src/bindtextdomain.c -ldl
 endif
